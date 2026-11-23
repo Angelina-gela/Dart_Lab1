@@ -48,4 +48,54 @@ for (var fruit in fruits2) {
   print(fruit);
 }
 
+String greet(String name) {
+  return 'Привет, $name!';
+}
+
+String greetShort(String name) => 'Привет, $name!';
+int square(int x) => x * x;
+double half(double x) => x / 2;
+
+void describePet({required String name, String species = 'кот', int age = 0}) {
+  print('$name - $species, возраст $age');
+}
+
+String repeat(String text, [int times = 2]) {
+  String result = '';
+  for (int i = 0; i < times; i++) {
+    result += text;
+  }
+  return result;
+}
+
+void main() {
+  String name = 'Артём';
+  int age = 20;
+  print('Привет, $name! Тебе $age лет.');
+
+  print(greet('Артём'));
+  print(greet('Мария'));
+
+  print(greetShort('Иван'));
+  print(square(5));
+  print(half(7));
+
+  describePet(name: 'Барсик', age: 3);
+  describePet(name: 'Шарик', species: 'пёс');
+  describePet(name: 'Кеша', species: 'попугай', age: 2);
+
+  print(repeat('xa'));       // xaxa
+  print(repeat('xa', 3));    // xaxaxa
+
+  List<int> numbers = [3, 1, 4, 1, 5, 9];
+  numbers.sort((a, b) => b - a);
+  print(numbers);
+
+  List<String> names = ['Артём', 'Мария', 'Иван'];
+  List<String> upper = names.map((n) => n.toUpperCase()).toList();
+  print(upper);
+
+  List<String> longNames = names.where((n) => n.length > 4).toList();
+  print(longNames);
+}
 }
